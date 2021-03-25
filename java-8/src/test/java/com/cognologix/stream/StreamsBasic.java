@@ -1,16 +1,23 @@
 package com.cognologix.stream;
 
 import org.junit.Test;
+import sun.awt.X11.XSystemTrayPeer;
 
-import java.util.Arrays;
-import java.util.List;
+import java.io.PrintStream;
+import java.util.*;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+//import java.util.Arrays;
+//import java.util.List;
+//import java.util.ArrayList;
 
 public class StreamsBasic {
 
     @Test
     public void createStreamFromArraysAndPrintOnConsole() {
         //List<String> myList = <write >
-        List<String> myList;
+        List<String> myList=new ArrayList<String>();
+        System.out.println(myList);
     }
 
     @Test
@@ -19,6 +26,10 @@ public class StreamsBasic {
                 Arrays.asList("a1", "a2", "b1", "c2", "c1");
 
         //write your code here - convert all elements to upper case
+
+        List upper=myList.stream().map(x->x.toUpperCase()).collect(Collectors.toList());
+
+        System.out.println(upper);
     }
 
     @Test
@@ -27,6 +38,7 @@ public class StreamsBasic {
                 Arrays.asList("a1", "a2", "b1", "c2", "c1");
 
         //write your code here - print the first element.
+        System.out.println(myList.get(0));
     }
 
     @Test
@@ -35,6 +47,8 @@ public class StreamsBasic {
                 Arrays.asList("a1", "a2", "b1", "c2", "c1");
 
         //write your code here - sort the above array.
+        List sorted=myList.stream().sorted().collect(Collectors.toList());
+        System.out.println(sorted);
     }
 
     @Test
@@ -43,6 +57,9 @@ public class StreamsBasic {
                 Arrays.asList("a1", "a2", "b1", "c2", "c1");
 
         //filter c1 element
+        List filtered=myList.stream().filter(str -> str.contains("c1")).collect(Collectors.toList());
+
+        System.out.println(filtered);
     }
 
     @Test
@@ -68,5 +85,7 @@ public class StreamsBasic {
                 BC,
                 when
         */
+
+        Arrays.stream(string.split(" ")).forEach(k->System.out.println(k));
     }
 }
