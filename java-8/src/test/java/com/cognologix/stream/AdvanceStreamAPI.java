@@ -50,7 +50,7 @@ public class AdvanceStreamAPI {
         
         Stream<Object> objectStream = firstStream.flatMap(first -> secondStreamSupplier.get()
                 .map(second -> tuple(first, second)));
-        System.out.println(objectStream);
+  
         objectStream.forEach(System.out::println);
 
         /*
