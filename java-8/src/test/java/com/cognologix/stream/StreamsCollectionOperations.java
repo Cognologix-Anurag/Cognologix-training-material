@@ -15,6 +15,22 @@ public class StreamsCollectionOperations {
             this.name = name;
             this.age = age;
         }
+        
+         public String getName() {
+            return name;
+        }
+
+        public void setName(String name) {
+            this.name = name;
+        }
+
+        public int getAge() {
+            return age;
+        }
+
+        public void setAge(int age) {
+            this.age = age;
+        }
 
         @Override
         public String toString() {
@@ -35,6 +51,11 @@ public class StreamsCollectionOperations {
                         new Person("Peter", 23),
                         new Person("Pamela", 23),
                         new Person("David", 12));
+        
+         List<Person> filterd_persons = persons.stream()
+                .filter(person -> person.getName().startsWith("P"))
+                .collect(Collectors.toList());
+        filterd_persons.forEach(System.out::println);
     }
 
     @Test
@@ -55,6 +76,10 @@ public class StreamsCollectionOperations {
                         new Person("Peter", 23),
                         new Person("Pamela", 23),
                         new Person("David", 12));
+        
+        Map<Integer, List<Person>> collect = persons.stream().collect(
+                groupingBy(Person::getAge));
+        System.out.println(collect);
 
         /*
             Expected output
@@ -77,6 +102,11 @@ public class StreamsCollectionOperations {
                         new Person("Peter", 23),
                         new Person("Pamela", 23),
                         new Person("David", 12));
+        
+        Double collect = persons.stream()
+                .collect(Collectors.averagingInt(person -> person.age));
+
+        System.out.println(collect);
 
 
     }
