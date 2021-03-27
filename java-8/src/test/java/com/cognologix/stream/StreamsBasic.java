@@ -19,6 +19,11 @@ public class StreamsBasic {
                 Arrays.asList("a1", "a2", "b1", "c2", "c1");
 
         //write your code here - convert all elements to upper case
+        List<String> outputListUpper = Arrays.asList("A1", "A2", "B1", "C2", "C1");
+        List<String> myListUpper = myList.stream()
+                .map(ele -> ele.toUpperCase())
+                .collect(Collectors.toList());
+        assertEquals(outputListUpper, myListUpper);
     }
 
     @Test
@@ -27,6 +32,10 @@ public class StreamsBasic {
                 Arrays.asList("a1", "a2", "b1", "c2", "c1");
 
         //write your code here - print the first element.
+        Optional<String> first = myList.stream()
+                .findFirst();
+        assertEquals("a1", first.get());
+        
     }
 
     @Test
@@ -35,6 +44,12 @@ public class StreamsBasic {
                 Arrays.asList("a1", "a2", "b1", "c2", "c1");
 
         //write your code here - sort the above array.
+        List<String> sortedList = myList.stream()
+                .sorted()
+                .collect(Collectors.toList());
+
+        assertEquals(sortedList.get(0), "a1");
+        assertEquals(sortedList.get(4), "c2");
     }
 
     @Test
@@ -43,6 +58,10 @@ public class StreamsBasic {
                 Arrays.asList("a1", "a2", "b1", "c2", "c1");
 
         //filter c1 element
+        List<String> only_c1 = myList.stream()
+                .filter(ele -> ele.contains("c1"))
+                .collect(Collectors.toList());
+        assertEquals("c1", only_c1.get(0));
     }
 
     @Test
