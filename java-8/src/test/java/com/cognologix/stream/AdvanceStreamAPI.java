@@ -47,6 +47,11 @@ public class AdvanceStreamAPI {
             Perform cross join of 2 streams
             Hint : Need to use flatmap API.
          */
+        
+        Stream<Object> objectStream = firstStream.flatMap(first -> secondStreamSupplier.get()
+                .map(second -> tuple(first, second)));
+        System.out.println(objectStream);
+        objectStream.forEach(System.out::println);
 
         /*
             Expected output
@@ -66,6 +71,11 @@ public class AdvanceStreamAPI {
             Perform cross join of 2 streams
             Hint : Need to use flatmap API.
          */
+        
+         Stream<Object> objectStream = listOfInteger.stream()
+                .flatMap(integer -> listOfStrings.stream()
+                        .map(string -> tuple(integer, string)));
+        objectStream.forEach(System.out::println);
 
         /*
         Expected output
@@ -89,6 +99,10 @@ public class AdvanceStreamAPI {
             Use limit API
             limit the string elements to 5
          */
+        
+         Stream<Integer> limit = listOfInteger.stream()
+                .limit(5);
+        limit.forEach(System.out::println);
 
         /*
                 1
@@ -103,7 +117,10 @@ public class AdvanceStreamAPI {
     public void offset() {
         List<Integer> listOfInteger = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15);
 
+        Stream<Integer> skip = listOfInteger.stream()
+                .skip(3);
 
+        skip.forEach(System.out::println);
 
         /*
             Use skip API
@@ -137,8 +154,7 @@ public class AdvanceStreamAPI {
                 .stream()
                 .skip(3)
                 .limit(5)
-                .forEach(integer -> System.out.println(integer))
-        ;
+                .forEach(integer -> System.out.println(integer));
 
         /*
             Use Skip and limit API
@@ -158,6 +174,11 @@ public class AdvanceStreamAPI {
     @Test
     public void limitOffsetOrderIsImportant() {
         List<Integer> listOfInteger = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15);
+        
+        Stream<Integer> limit = listOfInteger.stream()
+                .skip(3)
+                .limit(2);
+        limit.forEach(System.out::println);
 
         /*
             Use limit,skip API.
@@ -176,7 +197,7 @@ public class AdvanceStreamAPI {
                 tuple(2, "Sergio"),
                 tuple(3, "Mikel"));
 
-
+    // Have some doubt
         /*
             print below lines :-
             Use Group By collector
@@ -196,6 +217,10 @@ public class AdvanceStreamAPI {
                 tuple(2, "Casilo"),
                 tuple(2, "Sergio"),
                 tuple(3, "Mikel"));
+        
+        // Have some doubt
+             Stream<Object> sorted = stream.sorted();
+        sorted.forEach(System.out::println);
 
         /*
             use sorted API
@@ -220,6 +245,8 @@ public class AdvanceStreamAPI {
                 tuple(3, "Mikel"));
 
 
+        Stream<Object> sorted = stream.sorted(Collections.reverseOrder());
+        sorted.forEach(System.out::println);
 
         /*
             Hint:- reverse ordering
