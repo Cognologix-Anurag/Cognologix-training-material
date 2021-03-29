@@ -15,5 +15,17 @@ package com.cognologix.scala.spark
  * ...
  */
 object AirportsInUSA {
+    def main(args: Array[String]): Unit = {
+
+    Logger.getLogger("org").setLevel(Level.ERROR)
+    
+    val sc = new SparkContext("local[*]", "AirportsInUSA")
+    val data = sc.textFile("in/airports.text")
+    var result = data.filter(_.split(",")(3).contains("United States"))
+    var output = result.map(line => new Tuple2(line.split(",")(1),line.split(",")(2)))
+
+    output.saveAsTextFile("out/airports_in_usa.txt")
+    sc.stop()
+  }
 
 }
