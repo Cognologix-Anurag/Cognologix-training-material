@@ -20,8 +20,22 @@ object WordCount {
       calculate number of words from text file
       and print it on the console.
      */
+    
+    // count total number of words 
+    
     val result = rdd.map(_.split(" ").length)
     print(result.sum().toInt)
+    
+    /* Another way to count total number of words 
+    val words = rdd.flatMap(x => x.split(" "))
+    println(words.count())
+    */
+   
+    // occurrence 
+    val words = input.flatMap(x => x.split(" "))
+    val wordCount = words.countByValue()
+    wordCounts.foreach(println)
+   
     sparkContext.stop()
   }
 
