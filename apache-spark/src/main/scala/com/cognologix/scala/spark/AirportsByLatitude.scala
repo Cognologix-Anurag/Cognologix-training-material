@@ -13,6 +13,18 @@ package com.cognologix.scala.spark
  * "Tofino", 49.082222
  * ...
  */
-object AirportsByLatitude {
+object AirportsByLongitude {
+  def main(args: Array[String]): Unit = {
+
+    Logger.getLogger("org").setLevel(Level.ERROR)
+    val sc = new SparkContext("local[*]", "AirportsByLongitude")
+    val data = sc.textFile("data/airports.text")
+    
+    var result = data.filter(_.split(",")(7).toDouble > 40.0000000)
+    var output = result.map(line => new Tuple2(line.split(",")(1),line.split(",")(7)))
+    output.saveAsTextFile("out/airports_by_Longitude.txt")
+
+    sc.stop()
+  }
 
 }
