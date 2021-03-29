@@ -21,7 +21,7 @@ object AirportsByLongitude {
     val data = sc.textFile("in/airports.text")
     
     var result = data.filter(_.split(",")(7).toDouble > 40.0000000)
-    var output = result.map(line => new Tuple2(line.split(",")(1),line.split(",")(7)))
+    var output = result.map(line => (line.split(",")(1),line.split(",")(7)))
     output.saveAsTextFile("out/airports_by_Longitude.txt")
 
     sc.stop()
