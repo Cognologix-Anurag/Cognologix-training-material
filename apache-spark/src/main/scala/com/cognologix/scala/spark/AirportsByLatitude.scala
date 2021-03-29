@@ -18,7 +18,7 @@ object AirportsByLongitude {
 
     Logger.getLogger("org").setLevel(Level.ERROR)
     val sc = new SparkContext("local[*]", "AirportsByLongitude")
-    val data = sc.textFile("data/airports.text")
+    val data = sc.textFile("in/airports.text")
     
     var result = data.filter(_.split(",")(7).toDouble > 40.0000000)
     var output = result.map(line => new Tuple2(line.split(",")(1),line.split(",")(7)))
