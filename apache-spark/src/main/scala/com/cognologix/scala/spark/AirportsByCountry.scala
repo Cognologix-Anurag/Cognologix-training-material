@@ -27,7 +27,7 @@ object AirportsByCountry {
 
     Logger.getLogger("org").setLevel(Level.ERROR)
 
-    val sc = new SparkContext("local[*]", "HelloWorld")
+    val sc = new SparkContext("local[*]", "AirportsByCountry")
 
     val data = sc.textFile("in/airports.text")
 
