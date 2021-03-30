@@ -42,7 +42,7 @@ object AverageHousePrice {
 
     Logger.getLogger("org").setLevel(Level.ERROR)
 
-    val sc = new SparkContext("local[*]", "HelloWorld")
+    val sc = new SparkContext("local[*]", "AverageHousePrice")
 
     val data = sc.textFile("in/RealEstate.csv")
 
