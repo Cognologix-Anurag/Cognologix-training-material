@@ -30,7 +30,7 @@ object SameHostsProblem {
     val july_host = july_log.map(_.split("\t")(0))
     val august_host = august_log.map(_.split("\t")(0))
     val result = july_host.intersection(august_host)
-    val result1 = result.filter(_ != "host")
+    val result1 = result.filter( line => !(line.startsWith("host") && line.contains("bytes")))
     
     result1.saveAsTextFile("out/nasa_logs_same_hosts.csv")
     sc.stop()
