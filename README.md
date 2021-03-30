@@ -30,6 +30,13 @@ com.cognologix.scala.spark.WordCount - complete word count program usign RDD in 
     `
     com.cognologix.scala.spark.SameHostsProblem - complete the program usign Scala and Java
     ` 
-    
+    7. RDD Group By :- 
+    `
+    com.cognologix.scala.spark.AirportsByCountry - complete the program usign Scala and Java    
+    `
+    8. RDD Reduce By / Combine By :-
+    `
+    com.cognologix.scala.spark.AverageHousePrice - complete the program usign Scala and Java
+    `
             
 2. Dataframes
