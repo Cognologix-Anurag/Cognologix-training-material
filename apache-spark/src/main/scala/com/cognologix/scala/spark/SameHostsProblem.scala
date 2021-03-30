@@ -17,5 +17,23 @@ package com.cognologix.scala.spark
  * Make sure the head lines are removed in the resulting RDD.
  */
 object SameHostsProblem {
+  
+  def main(args: Array[String]): Unit = {
+
+    Logger.getLogger("org").setLevel(Level.ERROR)
+
+    val sc = new SparkContext("local[*]", "HelloWorld")
+
+    val july_log = sc.textFile("in/nasa_19950701.tsv")
+    val august_log = sc.textFile("in/nasa_19950801.tsv")
+    
+    val july_host = july_log.map(_.split("\t")(0))
+    val august_host = august_log.map(_.split("\t")(0))
+    val result = july_host.intersection(august_host)
+    val result1 = result.filter(_ != "host")
+    
+    result1.saveAsTextFile("out/nasa_logs_same_hosts.csv")
+    sc.stop()
+  }
 
 }
