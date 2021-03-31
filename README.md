@@ -38,5 +38,13 @@ com.cognologix.scala.spark.WordCount - complete word count program usign RDD in 
     `
     com.cognologix.scala.spark.AverageHousePrice - complete the program usign Scala and Java
     `
+    9. BroadCast Variable :-
+    `
+    com.cognologix.scala.spark.broadcast.UkMakerSpaces - complete the program usign Scala and Java
+    `
+    10. Accumulators :-
+    `
+    com.cognologix.scala.spark.accumulator.StackOverflowSurvey - complete the program usign Scala and Java
+    `
             
 2. Dataframes
