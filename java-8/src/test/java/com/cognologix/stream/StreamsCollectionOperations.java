@@ -4,6 +4,9 @@ import org.junit.Test;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
+import java.util.OptionalDouble;
+import java.util.stream.Collectors;
 
 public class StreamsCollectionOperations {
 
@@ -20,6 +23,15 @@ public class StreamsCollectionOperations {
         public String toString() {
             return name;
         }
+
+        public String getAgeStr(){
+            return "age "+ String.valueOf(age);
+        }
+
+        public int getAge(){
+            return age;
+        }
+
     }
 
     @Test
@@ -35,6 +47,10 @@ public class StreamsCollectionOperations {
                         new Person("Peter", 23),
                         new Person("Pamela", 23),
                         new Person("David", 12));
+
+        List p_persons=persons.stream().filter(x->x.name.startsWith("P")).collect(Collectors.toList());
+
+        System.out.println(p_persons);
     }
 
     @Test
@@ -64,6 +80,14 @@ public class StreamsCollectionOperations {
              age 12: [David]
          */
 
+        Map<String,List<String>> age_grp_by=persons.stream().collect(
+                Collectors.groupingBy(Person::getAgeStr,
+                        Collectors.mapping(Person::toString,Collectors.toList())
+                )
+        );
+
+        System.out.println(age_grp_by);
+
     }
 
     @Test
@@ -78,6 +102,7 @@ public class StreamsCollectionOperations {
                         new Person("Pamela", 23),
                         new Person("David", 12));
 
-
+        OptionalDouble avg_age=persons.stream().mapToInt(Person::getAge).average();
+        System.out.println(avg_age);
     }
 }

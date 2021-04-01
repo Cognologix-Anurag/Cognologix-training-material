@@ -4,7 +4,9 @@ import org.junit.Test;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 import java.util.function.Supplier;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class AdvanceStreamAPI {
@@ -16,6 +18,14 @@ public class AdvanceStreamAPI {
         public Tuple2(T1 t1, T2 t2) {
             this.t1 = t1;
             this.t2 = t2;
+        }
+
+        public T1 getT1() {
+            return t1;
+        }
+
+        public T2 getT2() {
+            return t2;
         }
 
         @Override
@@ -55,6 +65,8 @@ public class AdvanceStreamAPI {
                 {2, A}
                 {2, B}
         */
+
+        firstStream.flatMap(i->secondStreamSupplier.get().map(j->tuple(i,j))).forEach(System.out::println);
     }
 
     @Test
@@ -79,6 +91,8 @@ public class AdvanceStreamAPI {
             {3, B}
             {3, C}
          */
+
+        listOfInteger.stream().flatMap(i->listOfStrings.stream().map(j->tuple(i,j))).forEach(System.out::println);
     }
 
     @Test
@@ -97,6 +111,8 @@ public class AdvanceStreamAPI {
                 4
                 5
          */
+
+        listOfInteger.stream().limit(5).forEach(System.out::println);
     }
 
     @Test
@@ -124,6 +140,8 @@ public class AdvanceStreamAPI {
             14
             15
          */
+
+        listOfInteger.stream().skip(3).forEach(System.out::println);
     }
 
     @Test
@@ -166,6 +184,7 @@ public class AdvanceStreamAPI {
                 4
                 5
          */
+        listOfInteger.stream().skip(3).limit(2).forEach(System.out::println);
     }
 
     @Test
@@ -185,6 +204,7 @@ public class AdvanceStreamAPI {
             3 [{3, Mikel}]
          */
 
+        //Map<Integer, List<Object>> collect = stream.collect(Collectors.groupingBy(Object::get));
     }
 
 
