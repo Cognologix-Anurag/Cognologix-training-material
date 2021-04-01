@@ -38,5 +38,19 @@ com.cognologix.scala.spark.WordCount - complete word count program usign RDD in 
     `
     com.cognologix.scala.spark.AverageHousePrice - complete the program usign Scala and Java
     `
+    9. BroadCast Variable :-
+    `
+    com.cognologix.scala.spark.broadcast.UkMakerSpaces - complete the program usign Scala and Java
+    `
+    10. Accumulators :-
+    `
+    com.cognologix.scala.spark.accumulator.StackOverflowSurvey - complete the program usign Scala and Java
+    `
+    11. Data Analysis Problem :-
+        ```
+           Write Spark program to read input file  - 2015-12-12.csv.gz
+           Analyze the files and write code to answer following questions
+           com.cognologix.scala.spark.RLogsDataAnalysis - complete the program usign Scala and Java
+        ```
             
 2. Dataframes
