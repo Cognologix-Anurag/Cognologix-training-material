@@ -32,7 +32,7 @@ object WordCount {
     */
    
     // occurrence 
-    val words = input.flatMap(x => x.split(" "))
+    val words = rdd.flatMap(x => x.split(" "))
     val wordCount = words.countByValue()
     wordCounts.foreach(println)
    
