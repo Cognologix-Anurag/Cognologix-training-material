@@ -57,6 +57,15 @@
     1. Creating Dataframes from List,Existing RDD
         ```
         https://spark.apache.org/docs/2.3.0/sql-programming-guide.html
-        Create Dataframe from json files , RDD with Java and Scala.                       
+        Create Dataframe from json files , RDD with Java and Scala.
+       
+        com.cognologix.scala.spark.dataframe.CreatingDataFrame - complete the program usign Scala and Java.
         ```
-    2. Struct Type and Case Classes 
+    2. Struct Type and Case Classes
+        ```
+        com.cognologix.scala.spark.dataframe.DataFrameAndSchemaClass - complete the program usign Scala and Java.
+       ``` 
+    3. Dataframe - Five Spark SQL Helper Utility Functions to Extract and Explore Complex Data Types
+        ```
+        https://docs.databricks.com/_static/notebooks/complex-nested-structured.html
+        ```
