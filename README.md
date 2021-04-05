@@ -68,4 +68,6 @@
     3. Dataframe - Five Spark SQL Helper Utility Functions to Extract and Explore Complex Data Types
         ```
         https://docs.databricks.com/_static/notebooks/complex-nested-structured.html
+       
+       com.cognologix.scala.spark.dataframe.ComplexNestedStructure - complete the program usign Scala and Java. 
         ```
