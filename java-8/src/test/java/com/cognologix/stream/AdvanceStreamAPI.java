@@ -2,9 +2,7 @@ package com.cognologix.stream;
 
 import org.junit.Test;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.function.Supplier;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -204,7 +202,8 @@ public class AdvanceStreamAPI {
             3 [{3, Mikel}]
          */
 
-        //Map<Integer, List<Object>> collect = stream.collect(Collectors.groupingBy(Object::get));
+        Map<Integer, List<Object>> collect = stream.map(o -> ((Tuple2<Integer,String>)o)).
+                collect(Collectors.groupingBy(integerStringTuple2 -> ((Tuple2<Integer,String>)integerStringTuple2).t1));
     }
 
 
@@ -228,6 +227,10 @@ public class AdvanceStreamAPI {
             {3, Mikel}
 
          */
+
+        List<Object> sortedTuple=stream.sorted((t1,t2)->((Tuple2<Integer,String>)t1).compareTo((Tuple2<Integer,String>)t2)).collect(Collectors.toList());
+
+        System.out.println(sortedTuple);
     }
 
 
@@ -252,6 +255,10 @@ public class AdvanceStreamAPI {
             {1, Barn}
 
          */
+
+        List<Object> reverseTuple = stream.sorted(Comparator.comparing(t->((Tuple2<Integer,String>)t).t1).reversed()).collect(Collectors.toList());
+
+        System.out.println(reverseTuple);
     }
 
 
