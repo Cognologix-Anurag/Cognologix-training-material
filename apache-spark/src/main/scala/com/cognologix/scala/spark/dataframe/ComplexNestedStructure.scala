@@ -46,7 +46,17 @@ object ComplexNestedStructure {
       To convert dataframe fields into json strings use to_json API
      */
 
+    /*
+      Step 5
+      Create Dataframe from below complex structure.
+     */
+    println(DataForComplexNestedStructure.dataDS)
 
+    /*
+      Step 6
+      Use of Explode function
+
+     */
 
   }
 
