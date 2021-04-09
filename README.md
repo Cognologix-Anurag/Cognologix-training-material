@@ -71,3 +71,17 @@
        
        com.cognologix.scala.spark.dataframe.ComplexNestedStructure - complete the program usign Scala and Java. 
         ```
+    4. Spark SQL - Running SQL Queries Programmatically
+        ```
+       https://spark.apache.org/docs/2.3.0/sql-programming-guide.html
+       com.cognologix.scala.spark.dataframe.SparkSQL - complete the program usign Scala and Java.
+       ```
+    5. Spark SQL with Dataframe API
+        ```
+       https://spark.apache.org/docs/2.3.0/sql-programming-guide.html
+       com.cognologix.scala.spark.dataframe.SparkSQL - complete the program usign Scala and Java.
+       ``` 
+    6. Spark User Defined Functions :- 
+        ```
+        Write UDF 
+       ```
